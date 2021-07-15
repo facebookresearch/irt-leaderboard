@@ -1,0 +1,37 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+[mrqa]
+# Resubmitted same model
+# 0x443b60 = SLQA_BERT
+# 0x729537 = bert-multi-finetune
+
+data_dir = 'data/mrqa/dev-data'
+pred_dir = 'data/mrqa/predictions'
+score_dir = "data/mrqa/scores"
+leaderboard = "data/mrqa/mrqa_leaderboard.jsonlines"
+
+bundle_ids = [
+    "0xa113983bc3fc42ff89bf3838a6177a0c",
+    "0x059b8bd5f76d4e9b88e9be7652fff15d",
+    "0xc1c33a9ffbdf4f9da06658d8f94532b6",
+    "0xebe788d9449d416698c4e838fad37fae",
+    # 0x456676760aae452cb44ade00bb515b64
+    "0x5c7302f3ac624abc92fba65b4d4013c9",
+    "0x443b60ac44d9422cb82b99a7fdb7893d",
+    "0x8d851db3255b485c97646c5c0ba812a2",
+    # 0x7295379e8ed54cd7baffa87d094a7cd6
+    "0x5716df3b477a452a997bcebb9e179c89",
+    "0xf2b854732dbf49908ce19db6b9e85294",
+    "0x88c3c496efa7429d9460953c72a19e15",
+    "0xb620b6836172484ea9622dbdaa1b3f4a",
+    "0x9a53e9c50f1244699c4a24aee483bd4c",
+    "0x57a28cd6778a4c978db110951389792d",
+]
+
+datasets = [
+    "BioASQ",
+    "DROP",
+    "DuoRC",
+    "RACE",
+    "RelationExtraction",
+    "TextbookQA",
+]

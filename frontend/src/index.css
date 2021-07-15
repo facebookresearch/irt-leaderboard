@@ -1,0 +1,42 @@
+/** Copyright (c) Facebook, Inc. and its affiliates. */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.positive-color {
+  background-color: #6d904f;
+}
+.negative-color {
+  background-color: #fc4f30;
+}
+.caution-color {
+  background-color: #e5ae38;
+}
+.neutral-color {
+  background-color: #8b8b8b;
+}
+
+.chord-mainBars {
+  shape-rendering: auto;
+  fill-opacity: 0;
+  stroke-width: 0.5px;
+  stroke: rgb(0, 0, 0);
+  stroke-opacity: 0;
+}
+.chord-subBars {
+  shape-rendering: crispEdges;
+}
+.chord-edges {
+  stroke: none;
+  fill-opacity: 0.3;
+}

@@ -1,0 +1,46 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: Lint
+        run: poetry run pylint leaderboard
+        continue-on-error: true
+      - name: Code Format - Black
+        run: poetry run black --check .
+        continue-on-error: true
+      - name: Code Format - isort
+        run: poetry run isort --check .
+        continue-on-error: true
+      - name: Download data
+        run: |
+          wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz
+          tar xzvf leaderboard-data-only-irt.tar.gz
+          mkdir static-data
+      - name: Test with pytest
+        run: |
+          poetry run pytest --ignore leaderboard/www -n 2

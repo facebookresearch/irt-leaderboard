@@ -1,0 +1,14 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/code/leaderboard/data
+      - ./static-data:/code/leaderboard/static-data
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"

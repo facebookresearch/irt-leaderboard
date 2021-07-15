@@ -1,0 +1,81 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+[tool.poetry]
+name = "leaderboard"
+version = "0.1.0"
+description = ""
+authors = ["Pedro Rodriguez <me@pedro.ai>"]
+license = "Apache-2"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+plotnine = "^0.7.1"
+pandas = "^1.1.1"
+tqdm = "^4.48.2"
+numpy = "^1.19.1"
+typer = "^0.3.2"
+pedroai = "^0.1.11"
+statsmodels = "^0.12.0"
+mlxtend = "^0.17.3"
+SQLAlchemy = "^1.3.19"
+uvicorn = "^0.12.2"
+fastapi = "^0.61.1"
+pydantic = "^1.6.1"
+codalab = "^0.5.33"
+pystan = "^2.19.1"
+pyfunctional = "^1.4.3"
+altair = "^4.1.0"
+pyro-ppl = "^1.5.0"
+py-irt = "^0.0.2"
+toml = "^0.10.2"
+dask = "^2.30.0"
+distributed = "^2.30.1"
+bokeh = "^2.2.3"
+altair-saver = "^0.5.0"
+wikipedia = "^1.4.0"
+fastapi-cache = "^0.0.6"
+aiofiles = "^0.6.0"
+rich = "^9.6.0"
+sklearn-pandas = "^2.0.3"
+vowpalwabbit = "^8.9.0"
+hyperopt = "^0.2.5"
+luigi = {extras = ["toml"], version = "^3.0.2"}
+streamlit = "^0.73.1"
+plotly = "^4.14.3"
+sympy = "^1.7.1"
+umap-learn = "^0.5.0"
+openTSNE = "^0.5.1"
+optuna = "^2.4.0"
+jupyter-server-proxy = "^1.5.3"
+ftfy = "^5.8"
+Unidecode = "^1.1.2"
+krippendorff = "^0.4.0"
+pdf-annotate = "^0.12.0"
+
+[tool.poetry.dev-dependencies]
+jupyter-http-over-ws = "^0.0.8"
+isort = "^5.6.4"
+jupyter = "^1.0.0"
+black = "^19.10b0"
+pylint = "^2.6.0"
+pytest = "^6.1.2"
+ipython = "^7.13.0"
+jedi = "^0.17.2"
+mypy = "^0.790"
+pytest-xdist = "^2.1.0"
+seaborn = "^0.11.0"
+jupyterlab = "^3.0.15"
+
+[tool.poetry.scripts]
+leaderboard = 'leaderboard.main:app'
+
+[tool.isort]
+known_first_party = "leaderboard"
+profile = "black"
+multi_line_output = 3
+
+[tool.black]
+line-length = 100
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

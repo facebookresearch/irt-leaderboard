@@ -1,0 +1,18 @@
+{
+    http_port 2000
+}
+http://0.0.0.0 {
+    reverse_proxy /api/* localhost:8000
+    reverse_proxy /static-data/* localhost:8000
+    reverse_proxy localhost:3000
+}
+http://leaderboard.pedro.ai {
+    reverse_proxy /api/* localhost:8000
+    reverse_proxy /static-data/* localhost:8000
+    reverse_proxy localhost:3000
+}
+http://localhost {
+    reverse_proxy /api/* localhost:8000
+    reverse_proxy /static-data/* localhost:8000
+    reverse_proxy localhost:3000
+}

@@ -1,0 +1,196 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+db = "data/explorer.sqlite3"
+
+[squad]
+train_v1 = "data/squad/datasets/train-v1.1.json"
+train_v2 = "data/squad/datasets/train-v2.0.json"
+dev_v2 = "data/squad/datasets/dev-v2.0.json"
+mallet_v2 = 'data/squad/datasets/squad_v2_mallet.txt'
+submission_metadata = "data/squad/submission_metadata.json"
+out_v2 = "data/squad/out-v2.0.json"
+dev_to_test = "data/squad/dev_to_test.json"
+
+[squad.leaderboard]
+dev = "data/leaderboard.jsonlines"
+test = "data/test_leaderboard.jsonlines"
+
+[squad.leaderboard_splits]
+dev = "data/leaderboard_splits.json"
+test = "data/test_leaderboard_splits.json"
+
+[squad.submission_predictions]
+dev = "data/squad/submission_predictions.json"
+test = "data/squad/test_submission_predictions.json"
+
+[stability]
+exact_match = "data/simulations/exact_match/"
+irt = "data/simulations/irt/"
+sampling = "data/simulations/sampling_stability/"
+cat_sampling = "data/simulations/cat_sampling_stability/"
+ranking = "data/simulations/ranking_stability/"
+dev_subject_splits = "data/simulations/dev_subject_splits.json"
+ranking_sig = 'data/simulations/ranking_sig.feather'
+
+# Toy Models
+[irt.squad.dev.toy.1Pl]
+full = "data/irt/squad/dev/toy/1PL_full"
+heldout = "data/irt/squad/dev/toy/1PL_heldout"
+
+[irt.squad.test.toy.1Pl]
+full = "data/irt/squad/test/toy/1PL_full"
+heldout = "data/irt/squad/test/toy/1PL_heldout"
+
+[irt.squad.dev.toy.2PL]
+full = "data/irt/squad/dev/toy/2PL_full"
+heldout = "data/irt/squad/dev/toy/2PL_heldout"
+
+[irt.squad.test.toy.2PL]
+full = "data/irt/squad/test/toy/2PL_full"
+heldout = "data/irt/squad/test/toy/2PL_heldout"
+
+
+# Stan Models
+[irt.squad.dev.stan.1PL]
+full = "data/irt/squad/dev/stan/1PL_full"
+heldout = "data/irt/squad/dev/stan/1PL_heldout"
+
+[irt.squad.test.stan.1PL]
+full = "data/irt/squad/test/stan/1PL_full"
+heldout = "data/irt/squad/test/stan/1PL_heldout"
+
+[irt.squad.dev.stan.2PL]
+full = "data/irt/squad/dev/stan/2PL_full"
+heldout = "data/irt/squad/dev/stan/2PL_heldout"
+
+[irt.squad.test.stan.2PL]
+full = "data/irt/squad/test/stan/2PL_full"
+heldout = "data/irt/squad/test/stan/2PL_heldout"
+
+
+# Pyro Models
+[irt.squad.dev.pyro.1PL]
+full = "data/irt/squad/dev/pyro/1PL_full"
+heldout = "data/irt/squad/dev/pyro/1PL_heldout"
+subject_heldout = "data/irt/squad/dev/pyro/1PL_subject_heldout"
+
+[irt.squad.test.pyro.1PL]
+full = "data/irt/squad/test/pyro/1PL_full"
+heldout = "data/irt/squad/test/pyro/1PL_heldout"
+subject_heldout = "data/irt/squad/test/pyro/1PL_subject_heldout"
+
+[irt.squad.dev.pyro.2PL]
+full = "data/irt/squad/dev/pyro/2PL_full"
+heldout = "data/irt/squad/dev/pyro/2PL_heldout"
+subject_heldout = "data/irt/squad/dev/pyro/2PL_subject_heldout"
+
+[irt.squad.test.pyro.2PL]
+full = "data/irt/squad/test/pyro/2PL_full"
+heldout = "data/irt/squad/test/pyro/2PL_heldout"
+subject_heldout = "data/irt/squad/test/pyro/2PL_subject_heldout"
+
+[irt.squad.dev.pyro.3PL]
+full = "data/irt/squad/dev/pyro/3PL_full"
+heldout = "data/irt/squad/dev/pyro/3PL_heldout"
+subject_heldout = "data/irt/squad/dev/pyro/3PL_subject_heldout"
+
+[irt.squad.test.pyro.3PL]
+full = "data/irt/squad/test/pyro/3PL_full"
+heldout = "data/irt/squad/test/pyro/3PL_heldout"
+subject_heldout = "data/irt/squad/test/pyro/3PL_subject_heldout"
+
+[vw.baseline]
+features = ['baseline']
+parameters = {}
+
+[vw.guids]
+features = ['guids']
+parameters = {}
+
+[vw.m_id]
+features = ['m_id']
+parameters = {}
+
+[vw.ex_id]
+features = ['ex_id']
+parameters = {}
+
+[vw.qwords]
+features = ['qwords']
+parameters = {}
+
+[vw.cwords]
+features = ['cwords']
+parameters = {}
+
+[vw.title]
+features = ['title']
+parameters = {}
+
+[vw.irt]
+features = ['irt']
+interactions = ['ii']
+parameters = {}
+
+[vw.stats]
+features = ["stats"]
+interactions = ["ss"]
+parameters = {}
+
+[vw.'guids+qwords']
+features = ['guids', 'qwords']
+parameters = {}
+
+[vw.'guids+stats']
+features = ['guids', 'stats']
+parameters = {}
+
+[vw.all]
+features = ['guids', 'qwords', 'cwords', 'title', 'stats', 'irt', 'topics']
+interactions = ['ii', 'ss']
+parameters = {topic_name = "num_topics=50"}
+
+[vw.topics_10]
+features = ['topics']
+topic_name = "num_topics=10"
+parameters = {topic_name = "num_topics=10"}
+
+[vw.topics_50]
+features = ['topics']
+topic_name = "num_topics=50"
+parameters = {topic_name = "num_topics=50"}
+
+[vw.topics_100]
+features = ['topics']
+topic_name = "num_topics=100"
+parameters = {topic_name = "num_topics=100"}
+
+[vw.topics_500]
+features = ['topics']
+topic_name = "num_topics=500"
+parameters = {topic_name = "num_topics=500"}
+
+[vw.topics_1000]
+features = ['topics']
+topic_name = "num_topics=1000"
+parameters = {topic_name = "num_topics=1000"}
+
+
+[topic."num_topics=10"]
+num_topics = 10
+output_dir = "data/topic-model/num_topics=10"
+
+[topic."num_topics=50"]
+num_topics = 50
+output_dir = "data/topic-model/num_topics=50"
+
+[topic."num_topics=100"]
+num_topics = 100
+output_dir = "data/topic-model/num_topics=100"
+
+[topic."num_topics=500"]
+num_topics = 500
+output_dir = "data/topic-model/num_topics=500"
+
+[topic."num_topics=1000"]
+num_topics = 1000
+output_dir = "data/topic-model/num_topics=1000"
