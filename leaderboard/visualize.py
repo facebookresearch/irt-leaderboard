@@ -339,8 +339,8 @@ def download_data(force: bool = False):
 
     if force or (should_download and not files_exist):
         print("Downloading data files")
-        subprocess.run('wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz')
-        subprocess.run('tar xzvf leaderboard-data-only-irt.tar.gz')
+        subprocess.run('wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz', shell=True)
+        subprocess.run('tar xzvf leaderboard-data-only-irt.tar.gz', shell=True)
 
 
 def main():
