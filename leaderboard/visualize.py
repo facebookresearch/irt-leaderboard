@@ -7,6 +7,7 @@ from pathlib import Path
 
 import altair as alt
 import numpy as np
+import requests
 import pandas as pd
 import streamlit as st
 from pedroai.io import read_json
@@ -340,7 +341,9 @@ def download_data(force: bool = False):
 
     if force or (should_download and not files_exist):
         print("Downloading data files")
-        subprocess.run('wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz', shell=True)
+        file = requests.get('wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz')
+        with open('leaderboard-data-only-irt.tar.gz', 'wb') as f:
+            f.write(file.content)
         subprocess.run('tar xzvf leaderboard-data-only-irt.tar.gz', shell=True)
 
 
