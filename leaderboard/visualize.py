@@ -1,4 +1,6 @@
 """Copyright (c) Facebook, Inc. and its affiliates."""
+import os
+import subprocess
 import datetime
 from collections import defaultdict
 from pathlib import Path
@@ -329,6 +331,16 @@ def load_single_subject_df(irt_model: str, subject_id: str):
 
     df = pd.DataFrame(rows)
     return df
+
+
+def download_data(force: bool = False):
+    should_download = bool(os.environ.get('DOWNLOAD_DATA'))
+    files_exist = os.path.exists('data/irt/squad/dev/pyro/3PL_full/parameters.json')
+
+    if force or (should_download and not files_exist):
+        print("Downloading data files")
+        subprocess.run('wget https://obj.umiacs.umd.edu/acl2021-leaderboard/leaderboard-data-only-irt.tar.gz')
+        subprocess.run('tar xzvf leaderboard-data-only-irt.tar.gz')
 
 
 def main():
