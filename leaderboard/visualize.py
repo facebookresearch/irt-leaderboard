@@ -75,6 +75,7 @@ def get_item_accuracy():
 
 @st.cache(allow_output_mutation=True)
 def load_data(irt_type: str):
+    download_data()
     irt_params = get_irt_model(irt_type)
     predictions = get_predictions()
     id_to_question = load_cached_squad()
